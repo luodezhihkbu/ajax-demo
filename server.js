@@ -28,19 +28,19 @@ var server = http.createServer(function(request, response) {
     response.setHeader("Content-Type", "text/html;charset=utf-8");
     let string = fs.readFileSync('public/index.html').toString();
     const page1 = fs.readFileSync('db/page1.json').toString();
-    string = string.replace('{{page1}}', page1); // 把page1.json的占位符替换为page1.json里的数据。
+    string = string.replace('{{page1}}', page1); // 把 index.html 里的 page1.json 的占位符替换为 page1.json 里的数据
     response.write(string);
     response.end();
-    // response.write(fs.readFileSync('public/index.html')); // 把html文件转成字符串后再传给write。 
+    // response.write(fs.readFileSync('public/index.html'));  表示把 html 文件转成字符串后再传给 write
   } else if (path === "/main.js") {
     response.statusCode = 200;
     response.setHeader("Content-Type", "text/javascript;charset=utf-8");
     response.write(fs.readFileSync('public/main.js'));
     response.end();
-  } else if (path === "/style.css") {
+  } else if (path === "/1.css") {
     response.statusCode = 200;
     response.setHeader("Content-Type", "text/css;charset=utf-8");
-    response.write(fs.readFileSync('public/style.css'));
+    response.write(fs.readFileSync('public/1.css'));
     response.end();
   } else if (path === "/2.js") {
     response.statusCode = 200;
